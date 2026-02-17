@@ -1,0 +1,51 @@
+<svg width="800" height="200" viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff00ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#00ffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00ff00;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glitch" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="#0a0a0a" />
+  <rect width="100%" height="100%" fill="url(#grid)" opacity="0.1"/>
+  
+  <!-- Grid Pattern -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#222" stroke-width="1"/>
+  </pattern>
+  <rect width="100%" height="100%" fill="url(#grid)" />
+
+  <!-- Main Text with Glow -->
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Monaco, monospace" font-weight="900" font-size="60" fill="url(#neonGradient)" filter="url(#glow)" letter-spacing="4">
+    GO MAP LEAKS
+  </text>
+  
+  <!-- Glitch Effect Layer (Slightly offset) -->
+  <text x="50.5%" y="50.5%" dominant-baseline="middle" text-anchor="middle" font-family="Monaco, monospace" font-weight="900" font-size="60" fill="none" stroke="#ff00ff" stroke-width="1" opacity="0.5" filter="url(#glitch)">
+    GO MAP LEAKS
+  </text>
+
+  <!-- Subtitle -->
+  <text x="50%" y="75%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#888" letter-spacing="2">
+    MEMORY DOES NOT SHRINK // 2026 EDITION
+  </text>
+
+  <!-- Decorative Elements -->
+  <line x1="100" y1="130" x2="700" y2="130" stroke="#333" stroke-width="2" />
+  <rect x="50" y="50" width="10" height="100" fill="#00ffff" opacity="0.5" />
+  <rect x="740" y="50" width="10" height="100" fill="#ff00ff" opacity="0.5" />
+
+</svg>
